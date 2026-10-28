@@ -14,7 +14,7 @@
 <?php wp_body_open(); ?>
         
 <header class="site-header">
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
         <div class="container">
             <a href="<?php echo site_url();?>" class="navbar-brand">Kavin Assessment</a>
 

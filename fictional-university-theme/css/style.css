@@ -1,3 +1,23 @@
 body {
   font-family: "Open Sans", sans-serif;
 }
+
+.fs-12 {
+  font-size: 12px !important;
+}
+
+.fs-14 {
+  font-size: 14px !important;
+}
+
+.card-background-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.amenities span:not(:last-child) {
+  border-right: 1px solid #d7d373;
+}
+
+.border-warning {
+  border-color: #b7bc86 !important;
+}

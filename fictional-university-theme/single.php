@@ -1,36 +1,64 @@
-<?php
-get_header();
 
-while (have_posts()) {
-    the_post(); ?>
+<?php get_header(); ?>
 
-<div class="page-banner">
-    <div
-        class="page-banner__bg-image"
-        style="
-        background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg')?>);">
-    </div>
-    <div class="page-banner__content container container--narrow">
-        <h1 class="page-banner__title"><?php the_title(); ?></h1>
-        <div class="page-banner__intro">
-        <p>Sub-title here...</p>
-        </div>
-    </div>
-</div>
+<main class="container py-5">
 
-<div class="container container--narrow page-section">
-    <div class="metabox metabox--position-up metabox--with-home-link">
-        <p><a class="metabox__blog-home-link" href="<?php echo site_url('/blog'); ?>">
-            <i class="fa fa-home" aria-hidden="true"></i> Blog</a>
-        <span class="metabox__main">Posted by <?php the_author_posts_link(); ?> on <?php the_time('n.j.y'); ?> in <?php echo get_the_category_list(', '); ?></span></p>
-    </div>
+    <?php while (have_posts()) : the_post(); ?>
 
-    <div class="generic-content">
-        <?php the_content(); ?>
-    </div>
-</div>
+        <?php
+        $salary = get_post_meta(
+            get_the_ID(),
+            '_job_salary',
+            true
+        );
 
-<?php }
+        $location = get_post_meta(
+            get_the_ID(),
+            '_job_location',
+            true
+        );
+        ?>
 
-get_footer();
-?>
+        <article class="single-job">
+
+            <h1><?php the_title(); ?></h1>
+
+            <div class="job-details mb-4 d-flex gap-2">
+
+                <p>
+                    <strong>Salary:</strong>
+                    <?php
+                    echo '' !== $salary
+                        ? esc_html($salary)
+                        : 'Not specified';
+        ?>
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    <?php
+        echo '' !== $location
+            ? esc_html($location)
+            : 'Not specified';
+        ?>
+                </p>
+
+            </div>
+
+            <div class="job-description">
+                <?php the_content(); ?>
+            </div>
+
+            <p class="mt-4">
+                <a href="<?php echo esc_url(get_post_type_archive_link('job')); ?>">
+                    &larr; Back to All Jobs
+                </a>
+            </p>
+
+        </article>
+
+    <?php endwhile; ?>
+
+</main>
+
+<?php get_footer(); ?>

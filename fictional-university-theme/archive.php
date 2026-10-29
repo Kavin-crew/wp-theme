@@ -1,41 +1,78 @@
-<?php get_header();?>
 
-<div class="page-banner">
-  <div
-    class="page-banner__bg-image"
-    style="
-      background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg')?>);">
-</div>
-  <div class="page-banner__content container container--narrow">
-    <h1 class="page-banner__title"><?php the_archive_title(); ?></h1>
-    <div class="page-banner__intro">
-      <p><?php the_archive_description(); ?></p>
-    </div>
-  </div>
-</div>
+<?php get_header(); ?>
 
-<div class="container container--narrow page-section">
-    <?php while (have_posts()) {
-        the_post(); ?>
+<main class="container py-5">
 
-        <div class="post-item">
-            <h2 class="headline headline--medium headline--post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+    <h1>Available Jobs</h1>
 
-            <div class="metabox">
-                <p>Posted by <?php the_author_posts_link(); ?> on <?php the_time('n.j.y'); ?> in <?php echo get_the_category_list(', '); ?></p>
-            </div>
+    <?php if (have_posts()) : ?>
 
-            <div class="generic-content">
-                <?php the_excerpt(); ?>
-                <p><a class="btn btn--blue" href="<?php the_permalink(); ?>">Continue reading &raquo;</a></p>
-            </div>
+        <div class="jobs-list">
+
+            <?php while (have_posts()) : the_post(); ?>
+
+                <?php
+                $salary = get_post_meta(
+                    get_the_ID(),
+                    '_job_salary',
+                    true
+                );
+
+                $location = get_post_meta(
+                    get_the_ID(),
+                    '_job_location',
+                    true
+                );
+                ?>
+
+                <article class="job-item mb-4 pb-4 border-bottom">
+
+                    <h2>
+                        <a class="fs-4" href="<?php the_permalink(); ?>">
+                            <?php the_title(); ?>
+                        </a>
+                    </h2>
+
+                    <p>
+                        <strong>Salary:</strong>
+                        <?php
+                        echo '' !== $salary
+                            ? esc_html($salary)
+                            : 'Not specified';
+                ?>
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong>
+                        <?php
+                echo '' !== $location
+                    ? esc_html($location)
+                    : 'Not specified';
+                ?>
+                    </p>
+
+                    <div>
+                        <?php the_excerpt(); ?>
+                    </div>
+
+                    <a href="<?php the_permalink(); ?>">
+                        View Job Details
+                    </a>
+
+                </article>
+
+            <?php endwhile; ?>
+
         </div>
 
-   <?php } ?>
+        <?php the_posts_pagination(); ?>
 
-    <div class="pagination">
-          <?php echo paginate_links(); ?>
-     </div>
-</div>
+    <?php else : ?>
 
-<?php get_footer();?>
+        <p>No job postings are currently available.</p>
+
+    <?php endif; ?>
+
+</main>
+
+<?php get_footer(); ?>

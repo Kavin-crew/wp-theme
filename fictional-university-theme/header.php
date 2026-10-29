@@ -25,10 +25,13 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Featured Listing</a>
+                        <a href="<?php echo site_url("/#featured-listing"); ?>" class="nav-link">Featured Listing</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Reviews</a>
+                        <a href="<?php echo site_url("/#google-reviews"); ?>" class="nav-link">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo site_url("/jobs"); ?>" class="nav-link">Jobs</a>
                     </li>
                 </ul>
             </div>

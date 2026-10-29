@@ -2,7 +2,7 @@
 
 <main class="site-main">
     <!-- Showcase featured properties -->
-    <section class="bg-dark text-light p-5">
+    <section class="bg-dark text-light p-5" id="featured-listing">
         <div class="container">
             <h2 class="text-center fw-bold mb-4">Our Featured Listing</h2>
 
@@ -42,7 +42,7 @@
 
                     <hr class="border-warning border-1 opacity-75" />
 
-                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                    <div class="d-flex justify-content-between align-items-center mt-auto gap-2">
                     <button
                         class="btn rounded-circle p-0 d-flex justify-content-center align-items-center"
                         style="width: 32px; height: 32px; --bs-btn-bg: #6f42c1; --bs-btn-hover-bg: #553492; --bs-btn-color: #fff; --bs-btn-hover-color: #fff;"
@@ -95,7 +95,7 @@
 
                     <hr class="border-warning border-1 opacity-75" />
 
-                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                    <div class="d-flex justify-content-between align-items-center mt-auto gap-2">
                     <button
                         class="btn rounded-circle p-0 d-flex justify-content-center align-items-center"
                         style="width: 32px; height: 32px; --bs-btn-bg: #6f42c1; --bs-btn-hover-bg: #553492; --bs-btn-color: #fff; --bs-btn-hover-color: #fff;"
@@ -148,7 +148,7 @@
 
                     <hr class="border-warning border-1 opacity-75" />
 
-                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                    <div class="d-flex justify-content-between align-items-center mt-auto gap-2">
                     <button
                         class="btn rounded-circle p-0 d-flex justify-content-center align-items-center"
                         style="width: 32px; height: 32px; --bs-btn-bg: #6f42c1; --bs-btn-hover-bg: #553492; --bs-btn-color: #fff; --bs-btn-hover-color: #fff;"
@@ -169,7 +169,7 @@
         </div>
     </section>
 
-    <section class="py-5" style="background-color: #e3a008;">
+    <section class="py-5" id="google-reviews" style="background-color: #e3a008;">
     <div class="container">
 
     <!-- Google Reviews Heading -->

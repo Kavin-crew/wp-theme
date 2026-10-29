@@ -21,3 +21,41 @@ body {
 .border-warning {
   border-color: #b7bc86 !important;
 }
+
+/* Review card */
+.review-card::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: #212529;
+  clip-path: polygon(87% 0, 0 0, 0 100%);
+
+  position: absolute;
+  bottom: -30px;
+  left: 140px;
+}
+
+/* indicators */
+[id*="desktopReviews"] .carousel-indicators .active {
+  background-color: #6f42c1;
+}
+[id*="desktopReviews"] .carousel-indicators .active::before,
+[id*="mobileReviews"] .carousel-indicators .active::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #6f42c1;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100px;
+}
+
+[id*="mobileReviews"] .carousel-indicators .active {
+  background-color: #6f42c1 !important;
+  position: relative;
+}
